@@ -33,6 +33,7 @@ pipeline {
                 }
             }
             steps {
+                input message: 'Ready to create python application? (Click "Proceed" to continue)'
                 sh 'pyinstaller --onefile sources/add2vals.py'
             }
             post {
