@@ -24,6 +24,20 @@ pipeline {
                 sh 'python -m py_compile sources/add2vals.py sources/calc.py' 
             }
         }
+        stage('Parallel In Sequential') {
+                    parallel {
+                        stage('In Parallel 1') {
+                            steps {
+                                echo "In Parallel 1"
+                            }
+                        }
+                        stage('In Parallel 2') {
+                            steps {
+                                echo "In Parallel 2"
+                            }
+                        }
+                    }
+                }
         stage('Test') {
             agent {
                 docker {
