@@ -32,6 +32,9 @@ pipeline {
                     image 'cdrx/pyinstaller-linux:python2'
                 }
             }
+            when {
+                branch 'release/*'
+            }
             steps {
                 input message: 'Ready to create python application? (Click "Proceed" to continue)'
                 sh 'pyinstaller --onefile sources/add2vals.py'
